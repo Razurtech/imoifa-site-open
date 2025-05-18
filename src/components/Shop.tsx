@@ -1,0 +1,1 @@
+export default function Shop() { return <div className='p-8'>Orisha Shop Page</div>; }

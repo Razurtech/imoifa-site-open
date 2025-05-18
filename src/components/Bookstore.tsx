@@ -1,0 +1,1 @@
+export default function Bookstore() { return <div className='p-8'>Bookstore Page</div>; }
