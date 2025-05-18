@@ -1,11 +1,15 @@
-import { useState } from 'react';
-import { Moon, Sun } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Moon, Sun, Instagram, Twitter, MessageSquare, Send } from 'lucide-react';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+  }, [darkMode]);
+
   return (
-    <div className={darkMode ? 'dark' : ''}>
+    <div>
       <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors">
         {/* Sticky Navbar */}
         <header className="sticky top-0 z-50 flex justify-between items-center px-6 py-4 shadow-md bg-white dark:bg-gray-800">
@@ -13,7 +17,7 @@ export default function Home() {
             <div className="w-8 h-8 bg-yellow-400 rounded-full"></div>
             <span className="text-xl font-bold">Ìmọ̀Ifá</span>
           </div>
-          <nav className="flex gap-6 text-sm font-medium">
+          <nav className="flex gap-6 text-sm font-medium items-center">
             <a href="#about" className="hover:text-yellow-500">About</a>
             <a href="#bookstore" className="hover:text-yellow-500">Bookstore</a>
             <a href="#orisha-shop" className="hover:text-yellow-500">Orisha Shop</a>
@@ -103,7 +107,7 @@ export default function Home() {
             <p className="mb-8 text-gray-700 dark:text-gray-300">Read insights, reflections, and teachings from the world of Ifá and Yoruba spirituality.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow">
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[180px]">
                   <h3 className="font-semibold mb-2">Sample Blog {i}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Brief description of a spiritual topic.</p>
                 </div>
@@ -118,10 +122,17 @@ export default function Home() {
             <h2 className="text-3xl font-semibold mb-6">Contact</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-6">Reach out to us with questions, collaborations, or general inquiries.</p>
             <form className="flex flex-col gap-4">
-              <input type="email" placeholder="Your email" className="px-4 py-2 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white" />
-              <textarea placeholder="Your message" rows={4} className="px-4 py-2 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
-              <button className="self-center px-6 py-2 bg-yellow-600 text-white rounded-md">Send Message</button>
+              <input type="email" placeholder="Your email address" className="px-4 py-2 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required />
+              <textarea placeholder="Write your message..." rows={4} className="px-4 py-2 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white" required></textarea>
+              <button className="self-center px-6 py-2 bg-yellow-600 text-white rounded-md flex items-center gap-2">
+                <Send size={16} /> Send Message
+              </button>
             </form>
+            <div className="mt-6 flex justify-center gap-4 text-gray-500 dark:text-gray-300">
+              <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="#" aria-label="X"><Twitter size={20} /></a>
+              <a href="#" aria-label="Telegram"><MessageSquare size={20} /></a>
+            </div>
           </div>
         </section>
 
@@ -133,3 +144,4 @@ export default function Home() {
     </div>
   );
 }
+
