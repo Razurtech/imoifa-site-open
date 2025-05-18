@@ -5,7 +5,11 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode);
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, [darkMode]);
 
   return (
@@ -59,8 +63,8 @@ export default function Home() {
             <p className="mb-8 text-gray-700 dark:text-gray-300">Discover sacred texts and modern interpretations of Ifá wisdom.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {['Odu Ifá', 'Spiritual Insights', 'Wisdom Scrolls'].map((title, i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow">
-                  <h3 className="font-semibold mb-2">{title}</h3>
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[220px]">
+                  <h3 className="font-semibold mb-2 text-lg">{title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Explore this sacred text and its meanings.</p>
                 </div>
               ))}
@@ -75,8 +79,8 @@ export default function Home() {
             <p className="mb-8 text-gray-700 dark:text-gray-300">Browse sacred tools, beads, and ritual items for Orisha worship.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {['Beads', 'Divination Tools', 'Incense'].map((item, i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow">
-                  <h3 className="font-semibold mb-2">{item}</h3>
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[220px]">
+                  <h3 className="font-semibold mb-2 text-lg">{item}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Authentic items for your practice.</p>
                 </div>
               ))}
@@ -91,8 +95,8 @@ export default function Home() {
             <p className="mb-8 text-gray-700 dark:text-gray-300">Connect with verified Babaláwos, Ìyánífás, and spiritual guides near you.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {['Babaláwo Ifakunlé', 'Ìyánífá Moréniké'].map((person, i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow">
-                  <h3 className="font-semibold mb-1">{person}</h3>
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[200px]">
+                  <h3 className="font-semibold mb-1 text-lg">{person}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Available for spiritual consultation.</p>
                 </div>
               ))}
@@ -107,8 +111,8 @@ export default function Home() {
             <p className="mb-8 text-gray-700 dark:text-gray-300">Read insights, reflections, and teachings from the world of Ifá and Yoruba spirituality.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[180px]">
-                  <h3 className="font-semibold mb-2">Sample Blog {i}</h3>
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[220px]">
+                  <h3 className="font-semibold mb-2 text-lg">Sample Blog {i}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Brief description of a spiritual topic.</p>
                 </div>
               ))}
