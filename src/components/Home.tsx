@@ -19,7 +19,7 @@ export default function Home() {
         {/* Sticky Navbar */}
         <header className="sticky top-0 z-50 flex justify-between items-center px-6 py-4 shadow-md bg-white dark:bg-gray-800">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-yellow-400 rounded-full"></div>
+            <img src="/logo-no-background.png" alt="Ìmọ̀Ifá logo" className="w-10 h-10 object-contain" />
             <span className="text-xl font-bold">Ìmọ̀Ifá</span>
           </div>
           <nav className="flex gap-6 text-sm font-medium items-center">
