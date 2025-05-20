@@ -5,10 +5,11 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
+    const root = window.document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
     }
   }, [darkMode]);
 
@@ -62,9 +63,19 @@ export default function Home() {
             <h2 className="text-3xl font-semibold mb-6">Bookstore</h2>
             <p className="mb-8 text-gray-700 dark:text-gray-300">Discover sacred texts and modern interpretations of Ifá wisdom.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {['Odu Ifá', 'Spiritual Insights', 'Wisdom Scrolls'].map((title, i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[220px]">
-                  <h3 className="font-semibold mb-2 text-lg">{title}</h3>
+              {[{
+                title: 'Odu Ifá',
+                img: 'https://images.unsplash.com/photo-1575311373925-f64c6f6ab8d6?auto=format&fit=crop&w=500&q=60'
+              }, {
+                title: 'Spiritual Insights',
+                img: 'https://images.unsplash.com/photo-1509873435632-066b312ad75e?auto=format&fit=crop&w=500&q=60'
+              }, {
+                title: 'Wisdom Scrolls',
+                img: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=500&q=60'
+              }].map((book, i) => (
+                <div key={i} className="bg-white dark:bg-gray-700 p-4 rounded shadow min-h-[280px]">
+                  <img src={book.img} alt={book.title} className="h-40 w-full object-cover rounded mb-4" />
+                  <h3 className="font-semibold mb-2 text-lg">{book.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Explore this sacred text and its meanings.</p>
                 </div>
               ))}
@@ -78,9 +89,19 @@ export default function Home() {
             <h2 className="text-3xl font-semibold mb-6">Orisha Shop</h2>
             <p className="mb-8 text-gray-700 dark:text-gray-300">Browse sacred tools, beads, and ritual items for Orisha worship.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {['Beads', 'Divination Tools', 'Incense'].map((item, i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[220px]">
-                  <h3 className="font-semibold mb-2 text-lg">{item}</h3>
+              {[{
+                title: 'Beads',
+                img: 'https://images.unsplash.com/photo-1619603364933-d6fa319c7b3d?auto=format&fit=crop&w=500&q=60'
+              }, {
+                title: 'Divination Tools',
+                img: 'https://images.unsplash.com/photo-1621440315469-1c0e75c7cc90?auto=format&fit=crop&w=500&q=60'
+              }, {
+                title: 'Incense',
+                img: 'https://images.unsplash.com/photo-1611928231666-2e3a6cd40349?auto=format&fit=crop&w=500&q=60'
+              }].map((item, i) => (
+                <div key={i} className="bg-white dark:bg-gray-700 p-4 rounded shadow min-h-[280px]">
+                  <img src={item.img} alt={item.title} className="h-40 w-full object-cover rounded mb-4" />
+                  <h3 className="font-semibold mb-2 text-lg">{item.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">Authentic items for your practice.</p>
                 </div>
               ))}
@@ -92,12 +113,13 @@ export default function Home() {
         <section id="directory" className="py-32 px-6">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl font-semibold mb-6">Directory</h2>
-            <p className="mb-8 text-gray-700 dark:text-gray-300">Connect with verified Babaláwos, Ìyánífás, and spiritual guides near you.</p>
+            <p className="mb-8 text-gray-700 dark:text-gray-300">Connect with verified spiritual guides and Ifá practitioners. Contact us to get connected.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {['Babaláwo Ifakunlé', 'Ìyánífá Moréniké'].map((person, i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[200px]">
-                  <h3 className="font-semibold mb-1 text-lg">{person}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">Available for spiritual consultation.</p>
+              {[1, 2].map((i) => (
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[280px] flex flex-col items-center">
+                  <img src="https://images.unsplash.com/photo-1590080877631-572db5f3b8ef?auto=format&fit=crop&w=500&q=60" alt="Spiritual Guide" className="h-40 w-full object-cover rounded mb-4" />
+                  <h3 className="font-semibold mb-2 text-lg">Spiritual Consultant</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Reach out to our team to be connected with a verified guide.</p>
                 </div>
               ))}
             </div>
@@ -108,12 +130,13 @@ export default function Home() {
         <section id="blog" className="py-32 px-6 bg-gray-100 dark:bg-gray-800">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl font-semibold mb-6">Blog</h2>
-            <p className="mb-8 text-gray-700 dark:text-gray-300">Read insights, reflections, and teachings from the world of Ifá and Yoruba spirituality.</p>
+            <p className="mb-8 text-gray-700 dark:text-gray-300">Insights and teachings from the world of Ifá and Yoruba spirituality.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[220px]">
-                  <h3 className="font-semibold mb-2 text-lg">Sample Blog {i}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">Brief description of a spiritual topic.</p>
+                <div key={i} className="bg-white dark:bg-gray-700 p-6 rounded shadow min-h-[280px]">
+                  <img src={`https://source.unsplash.com/featured/?spirituality,african,${i}`} alt="Blog Image" className="h-40 w-full object-cover rounded mb-4" />
+                  <h3 className="font-semibold mb-2 text-lg">Sacred Wisdom {i}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Brief reflection or story about Yoruba tradition or practice.</p>
                 </div>
               ))}
             </div>
@@ -148,4 +171,3 @@ export default function Home() {
     </div>
   );
 }
-
